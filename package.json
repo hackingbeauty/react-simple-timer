@@ -1,6 +1,6 @@
 {
   "name": "react-simple-timer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React-based timer",
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
