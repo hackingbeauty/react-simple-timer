@@ -1,0 +1,47 @@
+{
+  "name": "react-timer",
+  "version": "1.1.11",
+  "description": "React-based digital timer",
+  "main": "lib/index.js",
+  "jsnext:main": "es/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && npm clean-demo",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {
+
+  },
+  "peerDependencies": {
+    "react": "15.x"
+  },
+  "devDependencies": {
+    "material-ui": "^0.16.0",
+    "nwb": "0.12.x",
+    "nwb-sass": "^0.6.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-tap-event-plugin": "^2.0.1"
+  },
+  "author": "",
+  "homepage": "",
+  "license": "MIT",
+  "repository": "",
+  "keywords": [
+    "react",
+    "react-component",
+    "timer",
+    "clock",
+    "digital timer"
+  ]
+}

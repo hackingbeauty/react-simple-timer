@@ -1,0 +1,74 @@
+import React from 'react';
+
+export default class ReactTimer extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      time: 0,
+      play: false,
+      timeType: 0,
+      title: ''
+    };
+    // Bind early, avoid function creation on render loop
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
+    this.elapseTime = this.elapseTime.bind(this);
+  }
+
+  componentDidMount() {
+    if(this.props.play) {
+      this.start();
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.play){
+      this.start();
+    } else {
+      this.stop();
+    }
+  }
+
+  elapseTime() {
+    if (this.state.play === true) {
+      let newState = this.state.time + 1;
+      this.setState({time: newState});
+    }
+  }
+
+  format(seconds) {
+    let m = Math.floor(seconds % 3600 / 60);
+    let s = Math.floor(seconds % 3600 % 60);
+    let timeFormated = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+    return timeFormated;
+  }
+
+  restartInterval() {
+    clearInterval(this.interval);
+    this.interval = setInterval(this.elapseTime, 1000);
+  }
+
+  start() {
+    if (true === this.state.play) return;
+
+    this.restartInterval();
+
+    this.setState({
+      play: true
+    });
+  }
+
+  stop(resetFor = this.state.time) {
+    clearInterval(this.interval);
+    let time = this.format(resetFor);
+    this.setState({play: false});
+  }
+
+  render() {
+    return (
+      <div className="container display timer">
+        <span className="time">{this.format(this.state.time)}</span>
+      </div>
+    );
+  }
+};
