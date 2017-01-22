@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 
-export default class ReactTimer extends React.Component {
+export default class ReactSimpleTimer extends Component {
   constructor() {
     super();
     this.state = {
