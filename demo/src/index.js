@@ -6,7 +6,7 @@ import injectTapEventPlugin    from 'react-tap-event-plugin';
 import MicrophoneOn            from 'material-ui/svg-icons/av/mic';
 import MicrophoneOff             from 'material-ui/svg-icons/av/stop';
 
-import ReactSimpleTimer from '../../src/ReactSimpleTimer';
+import ReactSimpleTimer from '../../src';
 
 require ('./styles.scss');
 
