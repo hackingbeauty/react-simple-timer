@@ -61,7 +61,7 @@ export default class ReactSimpleTimer extends Component {
   stop(resetFor = this.state.time) {
     clearInterval(this.interval);
     let time = this.format(resetFor);
-    this.setState({play: false});
+    this.setState({play: false, time: 0});
   }
 
   render() {
