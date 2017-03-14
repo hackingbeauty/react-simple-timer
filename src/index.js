@@ -66,7 +66,7 @@ export default class ReactSimpleTimer extends Component {
 
   render() {
     return (
-      <div className="container display timer">
+      <div className="display timer">
         <span className="time">{this.format(this.state.time)}</span>
       </div>
     );
