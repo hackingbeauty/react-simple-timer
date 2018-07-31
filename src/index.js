@@ -29,6 +29,10 @@ export default class ReactSimpleTimer extends Component {
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   elapseTime() {
     if (this.state.play === true) {
       let newState = this.state.time + 1;

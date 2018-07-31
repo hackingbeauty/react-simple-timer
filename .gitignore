@@ -3,5 +3,6 @@
 /es
 /lib
 /node_modules
+yarn-error.log
 /umd
 npm-debug.log*
