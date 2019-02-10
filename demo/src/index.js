@@ -15,32 +15,42 @@ injectTapEventPlugin();
 class Demo extends Component {
   constructor(props){
     super(props);
-    this.start = this.start.bind(this);
-    this.stop = this.stop.bind(this);
+
     this.state = {
-      play: false
+      play: false,
+      pause: false
     }
   }
 
-  start() {
+  start= () => {
     this.setState({
-      play: true
+      play: true,
+      pause: false
     });
   }
 
-  stop() {
+  stop= () => {
     this.setState({
       play: false
     });
   }
 
+  pause= () => {
+    this.setState({
+      pause: true
+    })
+  }
+
   render() {
+    const { play, pause } = this.state
+
     return(
       <MuiThemeProvider>
         <div>
-          <ReactSimpleTimer play={this.state.play} />
+          <ReactSimpleTimer play={play}  pause={pause}/>
           <button onTouchTap={this.start}>Start</button>
           <button onTouchTap={this.stop}>Stop</button>
+          <button onTouchTap={this.pause}>Pause</button>
         </div>
     </MuiThemeProvider>
     );

@@ -6,6 +6,7 @@ export default class ReactSimpleTimer extends Component {
     this.state = {
       time: 0,
       play: false,
+      pause: false,
       timeType: 0,
       title: ''
     };
@@ -22,7 +23,9 @@ export default class ReactSimpleTimer extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.play){
+    if (nextProps.pause) {
+      this.pause()
+    } else if(nextProps.play){
       this.start();
     } else {
       this.stop();
@@ -68,10 +71,17 @@ export default class ReactSimpleTimer extends Component {
     this.setState({play: false, time: 0});
   }
 
+  pause() {
+    const { time } = this.state
+    clearInterval(this.interval);
+    this.setState({play: false, time: time });
+  }
+
   render() {
+    const { time } = this.state
     return (
       <div className="display timer">
-        <span className="time">{this.format(this.state.time)}</span>
+        <span className="time">{this.format(time)}</span>
       </div>
     );
   }
